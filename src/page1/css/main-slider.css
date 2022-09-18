@@ -1,0 +1,58 @@
+.main-slider {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	position: relative;
+}
+
+.main-slider__slide img {
+	width: 100%;
+	max-height: 100%;
+	object-fit: cover;
+}
+
+.slider-arrows {
+	padding: 0 15px;
+	position: absolute;
+	top: 50%;
+	display: flex;
+	justify-content: space-between;
+	width: 98%;
+}
+
+.slider-arrows-arrow {
+	top: 0;
+	width: 64px;
+	height: 64px;
+	background-color: rgba(142, 140, 140, 0.5);
+	border-radius: 100%;
+	transition: background-color 0.3s ease-in-out;
+	cursor: pointer;
+}
+
+.slider-arrows-arrow:hover {
+	background-color: #f34e21;
+}
+
+.slider-arrows__prev {
+	left: 0;
+}
+
+.slider-arrows__next {
+	right: 0;
+	transform: rotate(180deg);
+}
+
+.fade {
+	animation-name: fade;
+	animation-duration: 1.5s;
+}
+
+@keyframes fade {
+	from {
+		opacity: 0.1;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
