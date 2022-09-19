@@ -1,7 +1,7 @@
 function slider() {
-	const slides = document.querySelectorAll('.main-slider__slide'),
-		prevBtn = document.querySelector('.slider-arrows__prev'),
-		nextBtn = document.querySelector('.slider-arrows__next');
+	const slider = document.querySelector('.main-slider'),
+		slides = document.querySelectorAll('.main-slider__slide');
+
 	let slideIndex = 1;
 
 	showSlides(slideIndex);
@@ -27,17 +27,30 @@ function slider() {
 		showSlides(slideIndex += n);
 	}
 
-	// setInterval(() => {
-	// 	changeSlides(1);
-	// }, 5000);
+	const pagination = document.createElement('ol'),
+		dots = [];
 
-	prevBtn.addEventListener('click', () => {
-		changeSlides(-1);
-	});
+	pagination.classList.add('slider-dots');
+	slider.append(pagination);
 
-	nextBtn.addEventListener('click', () => {
+	for (let i = 0; i < slides.length; i++) {
+		const dot = document.createElement('li');
+		dot.classList.add('slider-dots__dot');
+		dot.setAttribute('data-slide-index', i + 1);
+		if (i == 0) {
+			dot.classList.add('slider-dots__dot--active');
+		}
+		pagination.append(dot);
+		dots.push(dot);
+	}
+
+	setInterval(() => {
 		changeSlides(1);
-	});
+		dots.forEach(dot => {
+			dot.classList.remove('slider-dots__dot--active');
+		});
+		dots[slideIndex - 1].classList.add('slider-dots__dot--active');
+	}, 4000);
 }
 
 export default slider;
