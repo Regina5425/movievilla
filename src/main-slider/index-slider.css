@@ -1,0 +1,16 @@
+@import 'css/main-slider.css';
+
+html {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+}
+
+ul,
+ol {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
