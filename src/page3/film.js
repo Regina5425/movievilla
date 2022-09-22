@@ -1,4 +1,8 @@
+import heartGrey from "./img/heart_grey.svg";
+import heartRed from "./img/heart_red.svg";
+
 const id = localStorage.getItem("idFilm");
+console.log(id);
 const content = document.querySelector('.content');
 const COUNT_ACTORS = 5;
 
@@ -29,7 +33,6 @@ class Film {
     async render() {
         try {
             let film = await this.getInfoFromServer();
-            console.log(film);
 
             let fragment = new DocumentFragment();
 
@@ -40,6 +43,51 @@ class Film {
             image.src = film.image;
             image.alt = film.title;
             image.classList.add('illustration__img');
+
+            let base = document.createElement('div');
+            base.classList.add('heart-circle');
+
+            let favorite = document.createElement('img');
+            favorite.alt = `heart`;
+            favorite.classList.add('heart');
+            let toogle = 0;
+            //
+            let favoritesFilm = JSON.parse(localStorage.getItem('favorites'));
+            console.log(favoritesFilm.films);
+            if (favoritesFilm.films) {
+                let arrFavorites = favoritesFilm.films;
+                if (arrFavorites.includes(id)) {
+                    favorite.src = heartRed;
+                    toogle++;
+                } else {
+                    favorite.src = heartGrey;
+                }
+            } else {
+                favorite.src = heartGrey;
+            }
+            //
+            
+
+            base.addEventListener("click", function() {
+                if (!favoritesFilm) {
+                    favoritesFilm = {
+                        films: []
+                    };
+                }
+
+                if (!toogle) {
+                    favorite.src = heartRed;
+                    toogle++;
+                    favoritesFilm.films.push(id);
+                } else {
+                    favorite.src = heartGrey;
+                    toogle--;
+                    favoritesFilm.films.splice(favoritesFilm.films.indexOf(id), 1);
+                }
+
+                localStorage.removeItem('favorites');
+                localStorage.setItem('favorites', JSON.stringify({films: favoritesFilm.films}));
+            });
 
             let divTextBlock = document.createElement('div');
             divTextBlock.classList.add('about-film');
@@ -87,6 +135,9 @@ class Film {
 
             fragment.append(divImageBlock);
             divImageBlock.append(image);
+            divImageBlock.append(base);
+            
+            base.append(favorite);
 
             fragment.append(divTextBlock);
             divTextBlock.append(h2);
@@ -101,7 +152,7 @@ class Film {
         } catch (error) {
             console.log(error);
             let errorMsg = document.createElement('p');
-            errorMsg.textContent = 'Sorry. Server is not avaliable.';
+            errorMsg.textContent = 'Sorry. JSON is not avaliable.';
             errorMsg.classList.add('error');
             content.append(errorMsg);
         }
