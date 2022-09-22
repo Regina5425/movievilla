@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: white;
+    background-color: #0C111B;
+    font-size: 18px;
+}
+
+p {
+    padding: 0.5%;
+    color: #9CA3AF;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-top: 2%;
+}
+
+/* .illustration {
+
+} */
+
+.illustration__img {
+    width: 600px;
+    border-radius: 15px;
+}
+
+.about-film {
+    width: 60%;
+}
+
+.about-film__title {
+    font-size: 100px;
+    text-align: center;
+}
+
+.actors-block {
+    margin-top: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    min-height: 350px;
+}
+
+.actors-block__img {
+    width: 200px;
+    height: 290px;
+    border-radius: 15px;
+}
