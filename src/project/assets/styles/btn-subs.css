@@ -1,0 +1,19 @@
+/* удалить файл, сделан специально для модального окна подписки */
+body {
+	height: 100%;
+	background-color: #0C111B;
+}
+.btn-reset {
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.btn-subs {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	padding: 5px 20px;
+	border: 1px solid #fff;
+	border-radius: 26px;
+	color: #fff;
+}
