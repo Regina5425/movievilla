@@ -1,19 +1,114 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Movievilla</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
-      integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="index.css" />
-    <script type="module" src="index.js"></script>
-  </head>
-  <body></body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Movievilla</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="index.css" />
+  <script type="module" src="index.js"></script>
+</head>
+
+<body>
+  <header class="header">
+    <img src="../page2/img/Logo.png" alt="Логотип" class="header__img">
+    <nav class="header__nav">
+      <ul class="nav">
+        <li class="nav__item nav__item_active">
+          <a href="#" class="nav__item_link">Movies</a>
+        </li>
+        <li class="nav__item">
+          <a href="#" class="nav__item_link">Жанры</a>
+        </li>
+        <li class="nav__item">
+          <a href="#" class="nav__item_link">Поиск</a>
+        </li>
+        <li class="nav__item">
+          <a href="#" class="nav__item_link open-modal" data-modal="subscription">Подписка</a>
+        </li>
+        <li class="nav__item">
+          <a href="#" class="nav__item_link open-modal" data-modal="enter">Вход</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="modal">
+      <form class="modal-form">
+
+        <svg class="close-modal" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <path fill="#2982ff"
+            d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z" />
+        </svg>
+
+        <label>
+          <input type="email" name="email" placeholder="Email" required>
+          <div class="label__text">
+            Введите почту
+          </div>
+        </label>
+        <label>
+          <input type="password" name="password" placeholder="Пароль" required>
+          <div class="label__text">
+            Введите пароль
+          </div>
+        </label>
+
+        <button type="submit" class="button">Отправить</button>
+      </form>
+    </div>
+  </header>
+  <main>
+    <!-- main slider -->
+    <div class="main-slider">
+      <div class="main-slider__wrapper">
+        <div class="main-slider__slide">
+        </div>
+        <div class="main-slider__slide">
+        </div>
+        <div class="main-slider__slide">
+        </div>
+        <div class="main-slider__slide">
+        </div>
+      </div>
+    </div>
+
+
+
+  </main>
+
+  <div class="wrapper">
+    <footer class="footer">
+      <div>
+        <ul class="footer-list-social">
+          <li class="footer-list-item"><a class="footer-list-link-social footer-link-fb" href="#"></a></li>
+          <li class="footer-list-item"><a class="footer-list-link-social footer-link-instagram" href="#"></a></li>
+          <li class="footer-list-item"><a class="footer-list-link-social footer-link-twitter" href="#"></a></li>
+          <li class="footer-list-item"><a class="footer-list-link-social footer-link-youtube" href="#"></a></li>
+        </ul>
+      </div>
+
+      <ul class="footer__nav">
+        <li class="footer-list">
+          <p class="footer-list-title">Пользовательское соглашение</p>
+        </li>
+        <li class="footer-list">
+          <p class="footer-list-title">Политика конфиденциальности</p>
+        </li>
+        <li class="footer-list">
+          <p class="footer-list-title">Пресс-центр</p>
+        </li>
+      </ul>
+
+    </footer>
+
+
+    <div class="footer-data">© 2022 Твой кинотеатр</div>
+  </div>
+</body>
+
+</html>
+
 </html>
