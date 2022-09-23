@@ -1,5 +1,5 @@
-import searchFilm from "./js-search/search-modal";
+import searchFilmsForm from "./js-search/search-modal";
 
 document.addEventListener('DOMContentLoaded', () => {
-	searchFilm();
+	searchFilmsForm();
 });
