@@ -1,5 +1,8 @@
-import heartGrey from "../img/heart_grey.svg";
-import heartRed from "../img/heart_red.svg";
+import heartGrey from "./img/heart_grey.svg";
+import heartRed from "./img/heart_red.svg";
+
+import {getDataFromLocal} from "./workwithdata";
+import {setDataToLocal} from "./workwithdata";
 
 const id = localStorage.getItem("idFilm");
 console.log(id);
@@ -13,13 +16,11 @@ class Film {
 
     async getInfoFromServer() {
         try {
-            let data = JSON.parse(localStorage.getItem("film"));
-            if (!data) {
-                let url = 'https://imdb-api.com/en/API/Title/k_o0135nnp/' + this.id + '/FullActor,FullCast,Posters,Images,Trailer,Ratings,Wikipedia,';
-                let response = await fetch(url);
-                data = await response.json();
-                localStorage.setItem("film", JSON.stringify(data));
-            }
+            let url = 'https://imdb-api.com/en/API/Title/k_o0135nnp/' + this.id + '/FullActor,FullCast,Posters,Images,Trailer,Ratings,Wikipedia,';
+            let response = await fetch(url);
+            let data = await response.json();
+            console.log('я тут: ', data);
+            localStorage.setItem("film", JSON.stringify(data));
             return data;
         } catch (error) {
             console.log(error);
@@ -51,11 +52,9 @@ class Film {
             favorite.alt = `heart`;
             favorite.classList.add('heart');
             let toogle = 0;
-            //
-            let favoritesFilm = JSON.parse(localStorage.getItem('favorites'));
-            console.log(favoritesFilm.films);
-            if (favoritesFilm.films) {
-                let arrFavorites = favoritesFilm.films;
+            let favoritesFilm = getDataFromLocal("favorites", "films");
+            let arrFavorites = favoritesFilm.films;
+            if (arrFavorites.length > 0) {
                 if (arrFavorites.includes(id)) {
                     favorite.src = heartRed;
                     toogle++;
@@ -65,16 +64,9 @@ class Film {
             } else {
                 favorite.src = heartGrey;
             }
-            //
             
 
             base.addEventListener("click", function() {
-                if (!favoritesFilm) {
-                    favoritesFilm = {
-                        films: []
-                    };
-                }
-
                 if (!toogle) {
                     favorite.src = heartRed;
                     toogle++;
@@ -85,8 +77,8 @@ class Film {
                     favoritesFilm.films.splice(favoritesFilm.films.indexOf(id), 1);
                 }
 
-                localStorage.removeItem('favorites');
-                localStorage.setItem('favorites', JSON.stringify({films: favoritesFilm.films}));
+                setDataToLocal(favoritesFilm, "favorites", "films");
+
             });
 
             let divTextBlock = document.createElement('div');
