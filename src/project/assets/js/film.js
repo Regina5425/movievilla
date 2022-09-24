@@ -1,5 +1,5 @@
-import heartGrey from "./img/heart_grey.svg";
-import heartRed from "./img/heart_red.svg";
+import heartGrey from "../img/heart_grey.svg";
+import heartRed from "../img/heart_red.svg";
 
 import {getDataFromLocal} from "./workwithdata";
 import {setDataToLocal} from "./workwithdata";
