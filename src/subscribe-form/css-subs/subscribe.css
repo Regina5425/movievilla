@@ -48,7 +48,11 @@
 	position: absolute;
 	top: 8px;
 	right: 14px;
-	font-size: 30px;
+	padding: 5px;
+	width: 36px;
+	height: 36px;
+	text-align: center;
+	font-size: 38px;
 	color: #fff;
 	opacity: 0.8;
 	font-weight: 700;
