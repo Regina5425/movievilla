@@ -21,7 +21,6 @@
 }
 
 .search-modal__wrapper {
-	padding-top: 10px;
 	max-width: 300px;
 	background-color: #fff;
 	max-height: calc(100vh - 200px);

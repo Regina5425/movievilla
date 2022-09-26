@@ -1,5 +1,3 @@
-import films from "../filmsDB"; //убрать
-
 function searchFilmsForm() {
 	//все найденные элементы заменить на классы в форме поиска главной страницы
 	const form = document.querySelector('.search'),
@@ -17,10 +15,6 @@ function searchFilmsForm() {
 		searchModal.classList.add('search-modal__hide');
 	}
 
-	searchInput.addEventListener('focus', openSearchModal);
-	searchModal.addEventListener('click', closeSearchModal);
-
-	//get-запрос (показывает популярные фильмы при фокусе на инпут)
 	// const API_KEY_REGINA = 'k_d8sb2mok';
 	const API_KEY_REGINA_1 = 'k_my3q9ejq';
 
@@ -33,7 +27,7 @@ function searchFilmsForm() {
 		filmsContent.append(filmsList);
 
 		const film = document.createElement('a');
-		film.setAttribute('href', '#');
+		film.setAttribute('href', 'film.html');
 		film.classList.add('search-modal-film');
 		filmsList.append(film);
 
@@ -49,31 +43,10 @@ function searchFilmsForm() {
 		film.append(filmTitle);
 	}
 
-	function hideFilms() {
-		const filmContent = document.querySelector('.search-modal__content');
-		filmContent.style.display = 'none';
-	}
-
-	async function showPopularFilms(index) {
-		try {
-			const response = await fetch(`https://imdb-api.com/en/API/MostPopularMovies/${API_KEY_REGINA_1}`);
-			const showed = await response.json();
-
-			const filmGetImg = showed.items[index].image;
-			const filmGetId = showed.items[index].id;
-			const filmGetTitle = showed.items[index].title;
-
-			createFilms(filmGetImg, filmGetId, filmGetTitle);
-		} catch (err) {
-			err.innerHTML = `
-				<div class="search-modal-film__error">Не удалось загрузить фильмы</div>
-			`;
-		}
-	}
-
 	async function searchFilm(index) {
 		try {
 			const userSearch = searchInput.value.trim();
+			console.log(userSearch);
 			const response = await fetch(`https://imdb-api.com/en/API/SearchMovie/${API_KEY_REGINA_1}/${userSearch}`);
 			const searched = await response.json();
 
@@ -81,53 +54,31 @@ function searchFilmsForm() {
 			const searchedFilmId = searched.results[index].id;
 			const searchedFilmTitle = searched.results[index].title;
 
+			openSearchModal();
 			createFilms(searchedFilmImg, searchedFilmId, searchedFilmTitle);
 		} catch (err) {
 			err.innerHTML = `
 			<div class="search-modal-film__error">Фильм не найден</div>
 		`;
+		} finally {
+			form.reset();
 		}
 	}
 
-	// for (let i = 0; i < 10; i++) {
-	// 	showPopularFilms(i);
-	// }
-
-	// form.addEventListener('input', () => {
-	// 	for (let i = 0; i < 4; i++) {
-	// 		searchFilm(i);
-	// 	}
-	// });
-
-	// showPopularFilms(0);
-	// form.addEventListener('input', () => {
-	// 	hideFilms();
-	// 	searchFilm(0);
-	// });
-
-
-	//тестовая функция
-	function showtest1(index) {
-		const filmGetImg = films.items[index].image;
-		const filmGetId = films.items[index].id;
-		const filmGetTitle = films.items[index].title;
-		createFilms(filmGetImg, filmGetId, filmGetTitle);
-	}
-
-	function searchtest2(index) {
-		const userSearch = searchInput.value.trim();
-		if(userSearch === films.title) {
-			const searchedFilmImg = films.items[index].image;
-			const searchedFilmId = films.items[index].id;
-			const searchedFilmTitle = films.items[index].title;
-
-			createFilms(searchedFilmImg, searchedFilmId, searchedFilmTitle);
+	function clearResult() {
+		const filmContent = document.querySelector('.search-modal__content');
+		if(filmContent) {
+			filmContent.remove();
 		}
 	}
 
-	for (let i = 0; i < 10; i++) {
-		showtest1(i);
-	}
+	form.addEventListener('submit', (e) => {
+		e.preventDefault();
+		clearResult();
+		searchFilm(0);
+	});
+
+	searchModal.addEventListener('click', closeSearchModal);
 }
 
 export default searchFilmsForm;
