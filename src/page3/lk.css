@@ -1,4 +1,12 @@
+@import "./style.css";
+
 .favorites-block {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+h4 {
+    color: aliceblue;
+    font-size: 30px;
 }
