@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movievilla</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index-search.css" />
+    <script type="module" src="index-search.js"></script>
+  </head>
+  <body>
+    <!-- форма примерная, не для вставки в основной код -->
+    <form class="search">
+      <input type="text" class="search__input" placeholder="Поиск..." />
+      <button class="search__btn">Найти</button>
+    </form>
+    <!-- модальное окно, выпадающий список -->
+    <div class="search-modal search-modal__hide">
+      <div class="search-modal__wrapper"></div>
+    </div>
+  </body>
+</html>
