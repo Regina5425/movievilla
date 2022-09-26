@@ -5,14 +5,15 @@
     background-color: rgba(12, 17, 27, 1);
     display: flex;
     justify-content: space-between;
-    align-items: center;    
+    align-items: center;
     font-family: 'Roboto';
     font-size: 14px;
     font-weight: 500;
     color: rgba(255, 255, 255, 1);
     height: 84px;
 }
-.header__img{
+
+.header__img {
     width: 67px;
     height: 63px;
     padding-left: 30px;
@@ -21,19 +22,27 @@
 .nav {
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 
 .nav__item {
-    margin-right: 50px;
-    padding-top: 4px;
-    padding-bottom: 4px;
+    margin-right: 30px;
     padding-left: 8px;
     padding-right: 8px;
+    height: 50px;
+    align-items: center;
+}
+
+.nav__item_link {
+    position: relative;
+    padding-right: 50px;
+    top: 35%;
+    left: 20%;
 }
 
 .nav__item:hover {
-    border-radius: 10px;
-    box-shadow: 3px 3px 10px rgba(255, 255, 255, 1);
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px rgba(255, 255, 255, 1);
     transition: 0.5s;
 }
 
@@ -58,111 +67,170 @@ a {
     text-decoration: none;
 }
 
-    .modal {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background: rgba(0,0,0,0.5);
-        opacity: 0;
-        pointer-events: none;
-        transition: 0.5s all;
-     }
-     
-     .modal.active {
-        opacity: 1;
-        pointer-events: all;
-        transition: 0.5s all;
-     }
-     
-     .modal-form {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) scale(0);
-        background: #fff;
-        width: 400px;
-        padding: 25px;
-        transition: 0.5s all;
-     }
-     
-     .modal-form.active {
-        transform: translate(-50%, -50%) scale(1);
-        transition: 0.5s all;
-     }
-     
-     .close-modal {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        cursor: pointer;
-     }
-     
-     .modal-form label {
-        width: 100%;
-        margin-bottom: 25px;
-        display: flex;
-        flex-direction: column-reverse;
-     }
-     
-     .label__text {
-        font-size: 14px;
-        text-transform: uppercase;
-        font-weight: 500;
-        color: #cfd0d3;
-        margin-bottom: 5px;
-     }
-     
-     .modal-form input {
-        height: 45px;
-        font-size: 18px;
-        border: none;
-        outline: none;
-        border-bottom: 1px solid #cfd0d3;
-     }
-     
-     .modal-form input:focus {
-        border-bottom: 1px solid #163157;
-     }
-     
-     .modal-form input:focus + .label__text {
-        color: #163157;
-     }     
-     
-     .modal-form button {
-        width: 100%;
-        height: 45px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #fff;
-        font-size: 18px;
-        border: 2px solid #163157;
-        background: #163157;
-        cursor: pointer;
-        text-transform: uppercase;
-        transition: 0.5s all;
-     }
-     
-     .modal-form button:hover {
-        background: #fff;
-        color:#163157;
-        transition: 0.5s all;
-     }
+.search {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 1s;
+    width: 50px;
+    height: 50px;
+    background: white;
+    box-sizing: border-box;
+    border-radius: 25px;
+    border: 4px solid white;
+
+}
+
+.inputsearch {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 42.5px;
+    line-height: 30px;
+    outline: 0;
+    border: 0;
+    display: none;
+    font-size: 14px;
+    border-radius: 20px;
+    padding: 0 20px;
+}
+
+.fa {
+    box-sizing: border-box;
+    padding: 10px;
+    width: 42.5px;
+    height: 42.5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    color: rgba(12, 17, 27, 1);
+    text-align: center;
+    font-size: 18px;
+    transition: all 1s;
+}
+
+.search:hover {
+    width: 300px;
+    cursor: pointer;
+}
+
+.search:hover input {
+    display: block;
+}
+
+.search:hover .fa {
+    background: #07051a;
+    color: white;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.5s all;
+}
+
+.modal.active {
+    opacity: 1;
+    pointer-events: all;
+    transition: 0.5s all;
+}
+
+.modal-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background: #fff;
+    width: 400px;
+    padding: 25px;
+    transition: 0.5s all;
+}
+
+.modal-form.active {
+    transform: translate(-50%, -50%) scale(1);
+    transition: 0.5s all;
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.modal-form label {
+    width: 100%;
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.label__text {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #cfd0d3;
+    margin-bottom: 5px;
+}
+
+.modal-form input {
+    height: 45px;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #cfd0d3;
+}
+
+.modal-form input:focus {
+    border-bottom: 1px solid #163157;
+}
+
+.modal-form input:focus+.label__text {
+    color: #163157;
+}
+
+.modal-form button {
+    width: 100%;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 18px;
+    border: 2px solid #163157;
+    background: #163157;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.5s all;
+}
+
+.modal-form button:hover {
+    background: #fff;
+    color: #163157;
+    transition: 0.5s all;
+}
 
 .wrapper {
     font-family: 'DM Sans', sans-serif;
-    background-color: rgb(54, 60, 86);
+    background-color: rgba(12, 17, 27, 1);
     background-size: cover;
     font-size: 18px;
-    color: rgba(255, 255, 255, 1);    
+    color: rgba(255, 255, 255, 1);
 }
 
 
 .footer-list-title {
     text-align: center;
-     font-size: 18px;
+    font-size: 18px;
     padding-bottom: 25px;
 }
 
@@ -181,6 +249,7 @@ a {
     padding-right: 30%;
     gap: 48px;
 }
+
 .footer-link-fb {
     background-image: url(../page2/img/Vector.svg);
     width: 24px;
@@ -188,6 +257,7 @@ a {
     background-repeat: no-repeat;
     background-position: center center;
 }
+
 .footer-link-instagram {
     background-image: url(../page2/img/instagram.svg);
     width: 24px;
@@ -195,6 +265,7 @@ a {
     background-repeat: no-repeat;
     background-position: center center;
 }
+
 .footer-link-twitter {
     background-image: url(../page2/img/twitter.svg);
     width: 24px;
@@ -202,6 +273,7 @@ a {
     background-repeat: no-repeat;
     background-position: center center;
 }
+
 .footer-link-youtube {
     background-image: url(../page2/img/youtube.svg);
     width: 22.76px;
@@ -209,7 +281,8 @@ a {
     background-repeat: no-repeat;
     background-position: center center;
 }
-.footer__nav{
+
+.footer__nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -218,7 +291,7 @@ a {
     gap: 48px;
 }
 
-.footer-data {    
+.footer-data {
     text-align: center;
     font-size: 18px;
     padding-top: 24px;
@@ -226,31 +299,34 @@ a {
 }
 
 @media screen and (min-width: 768px) {
-    .footer { 
+    .footer {
         max-width: 1440px;
-        margin: 0 auto;  
+        margin: 0 auto;
         padding-top: 58px;
-        }
-        .footer-list{
+    }
+
+    .footer-list {
         max-width: 1440px;
-        margin: 0 auto;  
+        margin: 0 auto;
         padding-top: 58px;
-        }
+    }
 }
+
 @media screen and (max-width: 767px) {
-    .footer {    
-        margin: 0 20px;  
+    .footer {
+        margin: 0 20px;
         display: grid;
         grid-template-columns: 1fr;
         justify-content: center;
         align-items: flex-start;
         padding-top: 58px;
-        }
-
-        .contacts {
-           grid-row: 5;
-        }
-        .social_media {
-            grid-row: 7;
-        }
     }
+
+    .contacts {
+        grid-row: 5;
+    }
+
+    .social_media {
+        grid-row: 7;
+    }
+}
