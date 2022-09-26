@@ -2,7 +2,7 @@ function subscribeForm() {
 
 	const modalSubsBtn = document.querySelector('.btn-subs'), //получить button Подписаться по классу
 		modalSubs = document.querySelector('.modal-subs'),
-		modalSubsClose = document.querySelector('[data-subs-close]'),
+		modalSubsClose = document.querySelector('[data-subs="close"]'),
 		modalSubsForm = document.querySelector('.modal-subs__form'),
 		modalSubsInput = document.querySelector('.modal-subs__mail');
 
@@ -17,14 +17,6 @@ function subscribeForm() {
 		modalSubs.classList.remove('modal-subs__show');
 		document.body.style.overflow = '';
 	}
-
-	modalSubsBtn.addEventListener('click', openModalSubs);
-	modalSubsClose.addEventListener('click', closeModalSubs);
-	modalSubs.addEventListener('click', (event) => {
-		if (event.target === modalSubs) {
-			closeModalSubs();
-		}
-	});
 
 	function createModalSubsError(input) {
 		const modalSubsErrParag = document.createElement('p');
@@ -51,16 +43,24 @@ function subscribeForm() {
 		const successModalSubs = document.createElement('div');
 		successModalSubs.innerHTML = `
 				<div class="modal-subs-content">
+					<div data-subs="close" class="modal-subs__close">&times;</div>
 					<div class="modal-subs__title">${message}</div>
 				</div>
 			`;
 
 		modalSubsWrapper.append(successModalSubs);
-		setTimeout(() => {
+		modalSubsWrapper.addEventListener('click', () => {
 			successModalSubs.remove();
-			closeModalSubs();
-		}, 4000);
+		});
 	}
+
+	modalSubsBtn.addEventListener('click', openModalSubs);
+	modalSubsClose.addEventListener('click', closeModalSubs);
+	modalSubs.addEventListener('click', (event) => {
+		if (event.target === modalSubs) {
+			closeModalSubs();
+		}
+	});
 
 	//fetch
 	const url = 'https://jsonplaceholder.typicode.com/posts';
