@@ -66,18 +66,60 @@ function searchFilmsForm() {
 	}
 
 	function clearResult() {
-		const filmContent = document.querySelector('.search-modal__content');
-		if(filmContent) {
-			filmContent.remove();
+		const filmContent = document.querySelectorAll('.search-modal__content');
+		filmContent.forEach(film => {
+			if (film) {
+				film.remove();
+			}
+		});
+	}
+
+	//сохраняем поп фильмы в localStorage
+	function saveFilms(popular) {
+		const popFilms = JSON.stringify(popular);
+		localStorage.setItem('popular', popFilms);
+	}
+
+	//функция показывает популярные фильмы
+	async function showPopularFilms(index) {
+		try {
+			const response = await fetch(`https://imdb-api.com/en/API/MostPopularMovies/${API_KEY_REGINA_1}`);
+			const popular = await response.json();
+
+			for (let i = 0; i < 1; i++) {
+				saveFilms(popular);
+			}
+
+			const filmGetImg = popular.items[index].image;
+			const filmGetId = popular.items[index].id;
+			const filmGetTitle = popular.items[index].title;
+
+			createFilms(filmGetImg, filmGetId, filmGetTitle);
+		} catch (err) {
+			err.innerHTML = `
+				<div class="search-modal-film__error">Не удалось загрузить фильмы</div>
+			`;
 		}
+	}
+
+	//создание заголовка популярных фильмов
+	const popularFilmsTitle = document.createElement('h2');
+	popularFilmsTitle.classList.add('search-modal__title');
+	popularFilmsTitle.textContent = 'Популярные фильмы';
+	searchWrapper.prepend(popularFilmsTitle);
+
+	for (let i = 0; i < 5; i++) {
+		showPopularFilms(i);
 	}
 
 	form.addEventListener('submit', (e) => {
 		e.preventDefault();
+		popularFilmsTitle.remove();
 		clearResult();
 		searchFilm(0);
 	});
 
+	searchInput.addEventListener('focus', openSearchModal);
 	searchModal.addEventListener('click', closeSearchModal);
 }
 
