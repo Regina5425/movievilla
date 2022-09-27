@@ -1,3 +1,9 @@
+export let clickFilm = function (e) {
+    let active = e.currentTarget;
+    let id = active.id;
+    localStorage.setItem("idFilm", id);
+};
+
 class Card {
     constructor(obj) {
         this.image = obj.image;
@@ -13,11 +19,7 @@ class Card {
         link.href = "film.html";
         link.classList.add('slider-arrow__card-link');
         link.id = this.id;
-        link.addEventListener("click", function (e) {
-            let active = e.currentTarget;
-            let id = active.id;
-            localStorage.setItem("idFilm", id);
-        });
+        link.addEventListener("click", clickFilm);
 
         const card = document.createElement('div');
         card.classList.add('slider-arrow__card');
@@ -47,6 +49,12 @@ class Card {
 
         node.append(fragment);
     }
+
+    // clickFilm(e) {
+    //     let active = e.currentTarget;
+    //     let id = active.id;
+    //     localStorage.setItem("idFilm", id);
+    // }
 
 }
 
