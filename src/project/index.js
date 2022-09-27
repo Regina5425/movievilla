@@ -43,6 +43,13 @@ document.addEventListener('DOMContentLoaded', () => {
 	slider();
 });
 
+// index-search.js
+import searchFilmsForm from "./assets/js/search-modal";
+
+document.addEventListener('DOMContentLoaded', () => {
+	searchFilmsForm();
+});
+
 /* slider2.js*/
 
 import imgArrowLeft from "./assets/img/arrow_left.svg";
