@@ -1,7 +1,17 @@
 import imgArrowLeft from "./img/arrow_left.svg";
 import imgArrowRight from "./img/arrow_right.svg";
+import imgFake from "./img/fakeCard.png";
 
 import Card from "./card.js";
+import {clickFilm} from "./card.js";
+import {clickAll} from "./clickall.js";
+
+const fakeCard = {
+    year: '',
+    title: '',
+    id: 0,
+    image: imgFake
+}
 
 function clearBlock(node) {
     while (node.firstChild) {
@@ -11,7 +21,6 @@ function clearBlock(node) {
 
 const main = document.querySelector('.main');
 let objCards = {};
-
 class ArrowSlider {
     constructor(name, url, number) {
         this.name = name;
@@ -68,7 +77,7 @@ class ArrowSlider {
         linkAll.href = "all.html";
         linkAll.classList.add('slider-arrow__link', 'linkall-' + this.number);
         linkAll.textContent = `View all`;
-        linkAll.addEventListener("click", this.clickAll);
+        linkAll.addEventListener("click", clickAll);
 
         const divBlock = document.createElement('div');
         divBlock.classList.add('slider-arrow__block');
@@ -136,14 +145,14 @@ class ArrowSlider {
 
     }
 
-    clickAll(e) {
-        let active = e.target;
-            console.log(active);
+    // clickAll(e) {
+    //     let active = e.target;
+    //     console.log(active);
 
-            let number = active.className.match(/\d+/)[0];
-            let title = document.querySelector('.slider' + number + '__title').textContent;
-            localStorage.setItem("title", title);
-    }
+    //     let number = active.className.match(/\d+/)[0];
+    //     let title = document.querySelector('.slider' + number + '__title').textContent;
+    //     localStorage.setItem("title", title);
+    // }
 
     clickArrow(e) {
         e.preventDefault();
@@ -185,10 +194,19 @@ class ArrowSlider {
             }
 
             if ((objCards['slider' + numberSlider]) === 3) {
-                for (let i = 12; i < 17; i++) {
+                for (let i = 12; i < 16; i++) {
                     const element = arr[i];
                     element.render(document.querySelector('.slider' + numberSlider));
                 }
+                let card = new Card(fakeCard);
+                card.render(document.querySelector('.slider' + numberSlider));
+                let newLink = document.querySelector('a[id="0"]');
+                newLink.removeEventListener("click", clickFilm);
+                newLink.href = "all.html";
+                newLink.classList.add('linkall-' + numberSlider);
+                console.log(newLink);
+                console.log(newLink.href);
+                newLink.addEventListener("click", clickAll);
                 buttonRight.classList.add('invisible');
             }
         }
