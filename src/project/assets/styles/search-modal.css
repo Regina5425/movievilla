@@ -55,6 +55,12 @@
 	height: 70px;
 }
 
+.search-modal-film__img img {
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: cover;
+}
+
 .search-modal-film__descr {
 	display: flex;
 	flex-direction: column;
@@ -75,6 +81,7 @@
 	from {
 		opacity: 0.1;
 	}
+
 	to {
 		opacity: 1;
 	}
