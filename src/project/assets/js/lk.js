@@ -2,18 +2,14 @@ import Card from "./card.js";
 import {getDataFromLocal} from "./workwithdata";
 import {setDataToLocal} from "./workwithdata";
 import Favorite from "./favorite";
+import imgError from "../img/oops-err.png";
 
 const blockFavorites = document.querySelector('.favorites-block');
 
-/* получаем список избранного из localStorage или пустым делаем */
 let favorites = getDataFromLocal("favorites", "films");
 let arrayFavorites = favorites.films;
 
-/* получаем инфу о фильмах */
-
 if (arrayFavorites.length > 0) {
-    /* рисуем список карточек фильмов из избранного */
-    
     let arrCard = [];
 
     (async (arrayFavorites) => {
@@ -26,19 +22,20 @@ if (arrayFavorites.length > 0) {
                     }
                     arrCard[i] = new Card(result);
                     arrCard[i].render(blockFavorites);
-
-                    /* рисуем иконки избранного на фильмах */
-
                     let icon = new Favorite(result.id);
                     let arrIcon = document.querySelectorAll('.slider-arrow__card');
-                    console.log(arrIcon);
-                    // тут видимо сначала нужен будет селектор по картинке, куда рисовать иконку
                     icon.render(arrIcon[i]);
                 }
             } catch (error) {
                 console.log(error);
+                let errorImg = document.createElement('img');
+                errorImg.classList.add('error');
+                errorImg.alt = "error page";
+                errorImg.src = imgError;
+                blockFavorites.append(errorImg);
+            
                 let errorMsg = document.createElement('p');
-                errorMsg.textContent = error.message;
+                errorMsg.textContent = 'Sorry. API_KEY spoiled.';
                 errorMsg.classList.add('error');
                 blockFavorites.append(errorMsg);
             }

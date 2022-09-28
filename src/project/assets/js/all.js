@@ -1,4 +1,5 @@
 import Card from "./card.js";
+import imgError from "../img/oops-err.png";
 
 const divFilms = document.querySelector('.all-films__block');
 
@@ -18,8 +19,14 @@ try {
 }
 } catch (error) {
     console.log(error);
+    let errorImg = document.createElement('img');
+    errorImg.classList.add('error');
+    errorImg.alt = "error page";
+    errorImg.src = imgError;
+    divFilms.append(errorImg);
+
     let errorMsg = document.createElement('p');
-    errorMsg.textContent = 'Sorry. Server is not avaliable.';
+    errorMsg.textContent = 'Sorry. API_KEY spoiled.';
     errorMsg.classList.add('error');
     divFilms.append(errorMsg);
 }
