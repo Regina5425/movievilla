@@ -6,8 +6,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-family: 'Roboto';
-    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
     font-weight: 500;
     color: rgba(255, 255, 255, 1);
     height: 84px;
@@ -128,10 +128,11 @@ a {
 
 .modal {
     position: fixed;
+    margin-top: 20px;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: 80vh;
     background: rgba(0, 0, 0, 0.5);
     opacity: 0;
     pointer-events: none;
@@ -144,21 +145,6 @@ a {
     transition: 0.5s all;
 }
 
-.modal-form {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    background: #fff;
-    width: 900px;
-    padding: 25px;
-    transition: 0.5s all;
-}
-
-.modal-form.active {
-    transform: translate(-50%, -50%) scale(1);
-    transition: 0.5s all;
-}
 
 .close-modal {
     position: absolute;
@@ -167,47 +153,31 @@ a {
     cursor: pointer;
 }
 
-
-.modal-form .button {
-    width: 100%;
-    height: 45px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-size: 18px;
-    border: 2px solid #163157;
-    background: #163157;
-    cursor: pointer;
-    text-transform: uppercase;
-    transition: 0.5s all;
-}
-
-.modal-form .button:hover {
-    background: #fff;
-    color: #163157;
-    transition: 0.5s all;
-}
-
 .reg {
+
+    position: absolute;
+    left: 25%;
+    width: 900px;
+    height: 500px;
     margin: 0;
     min-height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(39, 43, 73);
+    background-color: rgb(66, 11, 11);
     transition: 0.5s;
 }
 
 .reg.active {
-    background-color: rgb(78, 98, 185);
+    background-color: rgb(16, 18, 102);
 }
 
 .container {
     width: 800px;
     height: 500px;
+    outline: solid;
     padding: 40px 0;
-    /* position: relative; */
+    position: relative;
 }
 
 .block {
@@ -245,7 +215,7 @@ a {
 
 .form-box {
     background-color: #fff;
-    height: 83vh;
+    height: 100%;
     width: 50%;
     box-shadow: 0 5px 45px rgba(255, 255, 255, 0.8);
     position: absolute;
@@ -253,9 +223,9 @@ a {
     left: 0;
     z-index: 100;
     transition: 0.5s ease-in-out;
-    /* display: flex;
+    display: flex;
     align-items: center;
-    overflow: hidden; */
+    overflow: hidden;
 }
 
 .form-box.active {
@@ -266,29 +236,29 @@ a {
     width: 100%;
     padding: 50px;
     font-size: 16px;
-    /* position: absolute;
-    transition: 0.5s; */
+    position: absolute;
+    transition: 0.5s;
 }
 
-/* .form_signin {
+.form_signin {
     left: 0;
     transition-delay: 0.25s;
-} */
+}
 
-/* .form_signup {
+.form_signup {
     left: 100%;
     transition-delay: 0s;
-} */
+}
 
-/* .form-box.active .form_signin {
+.form-box.active .form_signin {
     left: -100%;
     transition-delay: 0s;
-} */
+}
 
-/* .form-box.active .form_signup {
+.form-box.active .form_signup {
     left: 0;
     transition-delay: 0.25s;
-} */
+}
 
 .form_title {
     font-size: 1.5rem;
@@ -297,26 +267,24 @@ a {
 }
 
 .form_input {
-    width: 100%;
+    width: 70%;
     padding: 10px;
     border: solid 1px #333;
 }
 
-/* .form_btn {
+.form_btn {
     border: none;
     cursor: pointer;
     font-size: 1.5rem;
     color: #fff;
     background-color: rgb(39, 43, 73);
     padding: 10px 50px;
-} */
+}
 
-/* .form_forgot {
+.form_forgot {
     color: rgb(39, 43, 73);
     text-decoration: none;
-}  */
-
-
+}
 
 .wrapper {
     font-family: 'DM Sans', sans-serif;
