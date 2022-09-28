@@ -6,6 +6,7 @@ const signInBtn = document.querySelector(".signin-btn");
 const signUpBtn = document.querySelector(".signup-btn");
 const formBox = document.querySelector(".form-box");
 const reg = document.querySelector('.reg');
+let closeModal = document.querySelector('.close-modal');
 
 
 openModal.forEach((Submit) => {
@@ -16,6 +17,17 @@ openModal.forEach((Submit) => {
     })
 });
 
+closeModal.addEventListener('click', () => {
+    modal.classList.remove('active');
+    modalForm.classList.remove('active');
+});
+
+document.addEventListener('DOMContentLoaded', function (event) {
+    let name = localStorage.getItem('name');
+    if (name !== null) {
+        document.querySelector('.username').value = name;
+    }
+})
 
 document.addEventListener('click', (e) => {
     if (e.target === modal) {
@@ -34,25 +46,34 @@ signInBtn.addEventListener('click', function () {
     reg.classList.remove('active');
 });
 
-// const formSignIn = document.querySelector('.form_signin');
-// let error = document.querySelector(".error");
+const form = document.querySelectorAll(".form");
+let error = document.querySelector(".error");
+let finalError = "";
 
-// formSignIn.addEventListener('submit', function (event) {
-//     event.preventDefault();
-//     checkTextInput('input[name="user"]', 'Имя');
-//     checkTextInput('input[name="password"]', 'Пароль');
-//     error.innerHTML = finalError;
-// });
+form.forEach((Submit) => {
+    Submit.addEventListener('click', (e) => {
+        e.preventDefault();
+        checkTextInput('input[name="user"]', 'Имя');
+        checkTextInput('input[name="password"]', 'Пароль');
+        error.innerHTML = finalError;
+    });
+})
 
-// error.innerHTML = finalError;
 
-// function checkTextInput(selector, inputName) {
-//     let input = document.querySelector(selector);
-//     if (input.value.length > 1) {
 
-//     }
-//     else {
-//         finalError += `Заполните поле ${inputName} <br>`;
-//     }
-// }
+
+function checkTextInput(selector, inputName) {
+    let input = document.querySelector(selector);
+    if (input.value.length > 1) {
+        let userName = document.querySelector('.username').value;
+
+        if (localStorage.getItem('name') == null) {
+            localStorage.setItem('name', userName)
+        }
+
+    }
+    else {
+        finalError += `Заполните поле ${inputName} <br>`;
+    }
+}
 

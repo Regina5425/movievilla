@@ -224,7 +224,6 @@ a {
     z-index: 100;
     transition: 0.5s ease-in-out;
     display: flex;
-    align-items: center;
     overflow: hidden;
 }
 
@@ -284,6 +283,11 @@ a {
 .form_forgot {
     color: rgb(39, 43, 73);
     text-decoration: none;
+}
+
+.error {
+    color: red;
+    top: 0;
 }
 
 .wrapper {
