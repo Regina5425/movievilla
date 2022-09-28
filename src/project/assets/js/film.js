@@ -1,5 +1,6 @@
 import heartGrey from "../img/heart_grey.svg";
 import heartRed from "../img/heart_red.svg";
+import imgError from "../img/oops-err.png";
 
 import {getDataFromLocal} from "./workwithdata";
 import {setDataToLocal} from "./workwithdata";
@@ -26,8 +27,14 @@ class Film {
             return data;
         } catch (error) {
             console.log(error);
+            let errorImg = document.createElement('img');
+            errorImg.classList.add('error');
+            errorImg.alt = "error page";
+            errorImg.src = imgError;
+            content.append(errorImg);
+
             let errorMsg = document.createElement('p');
-            errorMsg.textContent = 'Sorry. Server is not avaliable.';
+            errorMsg.textContent = 'Sorry. API_KEY spoiled.';
             errorMsg.classList.add('error');
             content.append(errorMsg);
         }
@@ -109,8 +116,14 @@ class Film {
             content.append(fragment);
         } catch (error) {
             console.log(error);
+            let errorImg = document.createElement('img');
+            errorImg.classList.add('error');
+            errorImg.alt = "error page";
+            errorImg.src = imgError;
+            content.append(errorImg);
+
             let errorMsg = document.createElement('p');
-            errorMsg.textContent = 'Sorry. JSON is not avaliable.';
+            errorMsg.textContent = 'Sorry. API_KEY spoiled.';
             errorMsg.classList.add('error');
             content.append(errorMsg);
         }
