@@ -55,7 +55,7 @@ if (arrayFavorites.length > 0) {
 
 async function getData(id) {
     try {
-        let url = 'https://imdb-api.com/en/API/Title/k_9lry5v7x/' + id + '/FullActor,FullCast,Posters,Images,Trailer,Ratings,Wikipedia,';
+        let url = 'https://imdb-api.com/en/API/Title/k_o0135nnp/' + id + '/FullActor,FullCast,Posters,Images,Trailer,Ratings,Wikipedia,';
         let response = await fetch(url);
         let data = await response.json();
         return data;

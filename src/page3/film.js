@@ -4,6 +4,8 @@ import heartRed from "./img/heart_red.svg";
 import {getDataFromLocal} from "./workwithdata";
 import {setDataToLocal} from "./workwithdata";
 
+import Favorite from "./favorite";
+
 const id = localStorage.getItem("idFilm");
 console.log(id);
 const content = document.querySelector('.content');
@@ -16,7 +18,7 @@ class Film {
 
     async getInfoFromServer() {
         try {
-            let url = 'https://imdb-api.com/en/API/Title/k_o0135nnp/' + this.id + '/FullActor,FullCast,Posters,Images,Trailer,Ratings,Wikipedia,';
+            let url = 'https://imdb-api.com/en/API/Title/k_pg59pfpp/' + this.id + '/FullActor,FullCast,Posters,Images,Trailer,Ratings,Wikipedia,';
             let response = await fetch(url);
             let data = await response.json();
             console.log('я тут: ', data);
@@ -45,41 +47,44 @@ class Film {
             image.alt = film.title;
             image.classList.add('illustration__img');
 
-            let base = document.createElement('div');
-            base.classList.add('heart-circle');
+            let icon = new Favorite(id);
+            icon.render(divImageBlock);
 
-            let favorite = document.createElement('img');
-            favorite.alt = `heart`;
-            favorite.classList.add('heart');
-            let toogle = 0;
-            let favoritesFilm = getDataFromLocal("favorites", "films");
-            let arrFavorites = favoritesFilm.films;
-            if (arrFavorites.length > 0) {
-                if (arrFavorites.includes(id)) {
-                    favorite.src = heartRed;
-                    toogle++;
-                } else {
-                    favorite.src = heartGrey;
-                }
-            } else {
-                favorite.src = heartGrey;
-            }
+            // let base = document.createElement('div');
+            // base.classList.add('heart-circle');
+
+            // let favorite = document.createElement('img');
+            // favorite.alt = `heart`;
+            // favorite.classList.add('heart');
+            // let toogle = 0;
+            // let favoritesFilm = getDataFromLocal("favorites", "films");
+            // let arrFavorites = favoritesFilm.films;
+            // if (arrFavorites.length > 0) {
+            //     if (arrFavorites.includes(id)) {
+            //         favorite.src = heartRed;
+            //         toogle++;
+            //     } else {
+            //         favorite.src = heartGrey;
+            //     }
+            // } else {
+            //     favorite.src = heartGrey;
+            // }
             
 
-            base.addEventListener("click", function() {
-                if (!toogle) {
-                    favorite.src = heartRed;
-                    toogle++;
-                    favoritesFilm.films.push(id);
-                } else {
-                    favorite.src = heartGrey;
-                    toogle--;
-                    favoritesFilm.films.splice(favoritesFilm.films.indexOf(id), 1);
-                }
+            // base.addEventListener("click", function() {
+            //     if (!toogle) {
+            //         favorite.src = heartRed;
+            //         toogle++;
+            //         favoritesFilm.films.push(id);
+            //     } else {
+            //         favorite.src = heartGrey;
+            //         toogle--;
+            //         favoritesFilm.films.splice(favoritesFilm.films.indexOf(id), 1);
+            //     }
 
-                setDataToLocal(favoritesFilm, "favorites", "films");
+            //     setDataToLocal(favoritesFilm, "favorites", "films");
 
-            });
+            // });
 
             let divTextBlock = document.createElement('div');
             divTextBlock.classList.add('about-film');
@@ -127,9 +132,9 @@ class Film {
 
             fragment.append(divImageBlock);
             divImageBlock.append(image);
-            divImageBlock.append(base);
+            // divImageBlock.append(base);
             
-            base.append(favorite);
+            // base.append(favorite);
 
             fragment.append(divTextBlock);
             divTextBlock.append(h2);
