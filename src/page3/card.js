@@ -1,6 +1,6 @@
 export let clickFilm = function (e) {
     let active = e.currentTarget;
-    let id = active.id;
+    let id = active.dataset.id;
     localStorage.setItem("idFilm", id);
 };
 
@@ -18,7 +18,8 @@ class Card {
         const link = document.createElement('a');
         link.href = "film.html";
         link.classList.add('slider-arrow__card-link');
-        link.id = this.id;
+        link.dataset.id = this.id;
+        // link.id = this.id;
         link.addEventListener("click", clickFilm);
 
         const card = document.createElement('div');

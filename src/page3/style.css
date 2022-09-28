@@ -69,6 +69,7 @@ a {
 .slider-arrow__card {
     width: 225px;
     height: 400px;
+    position: relative;
 }
 
 .slider-arrow__films {
