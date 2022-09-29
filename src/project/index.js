@@ -267,6 +267,7 @@ class ArrowSlider {
         e.preventDefault();
 
         let active = e.currentTarget;
+        console.log(active);
         let arr;
         let title = 0;
 
@@ -309,7 +310,7 @@ class ArrowSlider {
                 }
                 let card = new Card(fakeCard);
                 card.render(document.querySelector('.slider' + numberSlider));
-                let newLink = document.querySelector('a[id="0"]');
+                let newLink = document.querySelector('a[data-id="0"]');
                 newLink.removeEventListener("click", clickFilm);
                 newLink.href = "all.html";
                 newLink.classList.add('linkall-' + numberSlider);
