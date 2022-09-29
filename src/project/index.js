@@ -1,36 +1,90 @@
 /* first.js */
 
-let modal = document.querySelector('.modal');
-let modalForm = document.querySelector('.modal-form');
-let openModal = document.querySelectorAll('.open-modal');
+const modal = document.querySelector('.modal');
+const modalForm = document.querySelector('.reg');
+const openModal = document.querySelectorAll('.open-modal');
+const Submit = document.querySelector('.form_btn');
+const signInBtn = document.querySelector(".signin-btn");
+const signUpBtn = document.querySelector(".signup-btn");
+const formBox = document.querySelector(".form-box");
+const reg = document.querySelector('.reg');
 let closeModal = document.querySelector('.close-modal');
 
-openModal.forEach((button) => {
-    button.addEventListener('click', (e) => {
+
+openModal.forEach((Submit) => {
+    Submit.addEventListener('click', (e) => {
         e.preventDefault();
         modal.classList.add('active');
         modalForm.classList.add('active');
     })
 });
 
-closeModal.addEventListener('click',() => {
+closeModal.addEventListener('click', () => {
     modal.classList.remove('active');
     modalForm.classList.remove('active');
 });
 
+document.addEventListener('DOMContentLoaded', function (event) {
+    let name = localStorage.getItem('name');
+    if (name !== null) {
+        document.querySelector('.username').value = name;
+    }
+})
+
 document.addEventListener('click', (e) => {
-    if(e.target === modal) {
+    if (e.target === modal) {
         modal.classList.remove('active');
         modalForm.classList.remove('active');
     }
 });
+
+signUpBtn.addEventListener('click', function () {
+    formBox.classList.add('active');
+    reg.classList.add('active');
+});
+
+signInBtn.addEventListener('click', function () {
+    formBox.classList.remove('active');
+    reg.classList.remove('active');
+});
+
+const form = document.querySelectorAll(".form");
+let error = document.querySelector(".error");
+let finalError = "";
+
+form.forEach((Submit) => {
+    Submit.addEventListener('click', (e) => {
+        e.preventDefault();
+        checkTextInput('input[name="user"]', 'Имя');
+        checkTextInput('input[name="password"]', 'Пароль');
+        error.innerHTML = finalError;
+    });
+})
+
+function checkTextInput(selector, inputName) {
+    let input = document.querySelector(selector);
+    if (input.value.length > 1) {
+        let userName = document.querySelector('.username').value;
+
+        if (localStorage.getItem('name') == null) {
+            localStorage.setItem('name', userName)
+        }
+
+    }
+    else {
+        finalError += `Заполните поле ${inputName} <br>`;
+    }
+}
+
+
+
 
 /* index-subs.js */
 
 import subscribeForm from './assets/js/subscribe';
 
 document.addEventListener('DOMContentLoaded', () => {
-	subscribeForm();
+    subscribeForm();
 });
 
 /* index-slider.js */
@@ -39,15 +93,15 @@ import getFilms from './assets/js/get-films';
 import slider from './assets/js/main-slider';
 
 document.addEventListener('DOMContentLoaded', () => {
-	getFilms();
-	slider();
+    getFilms();
+    slider();
 });
 
 // index-search.js
 import searchFilmsForm from "./assets/js/search-modal";
 
 document.addEventListener('DOMContentLoaded', () => {
-	searchFilmsForm();
+    searchFilmsForm();
 });
 
 /* slider2.js*/
@@ -57,8 +111,8 @@ import imgArrowRight from "./assets/img/arrow_right.svg";
 import imgFake from "./assets/img/fakeCard.png";
 
 import Card from "./assets/js/card";
-import {clickFilm} from "./assets/js/card.js";
-import {clickAll} from "./assets/js/clickall.js";
+import { clickFilm } from "./assets/js/card.js";
+import { clickAll } from "./assets/js/clickall.js";
 
 const fakeCard = {
     year: '',
@@ -87,12 +141,12 @@ class ArrowSlider {
     async getDataFromServer(name, url) {
         try {
             let response = await fetch(url);
-    
+
             let data = await response.json();
 
             for (const elem of data.items) {
                 this.arr.push(elem);
-            } 
+            }
             localStorage.setItem(name, JSON.stringify(this.arr));
 
             return data.items;
@@ -101,7 +155,7 @@ class ArrowSlider {
         }
     }
 
-    async getData(name,url) {
+    async getData(name, url) {
         try {
             let data = JSON.parse(localStorage.getItem(name));
             if (!data) {
@@ -121,14 +175,14 @@ class ArrowSlider {
         const section = document.createElement('section');
         section.classList.add('section__slider');
 
-        const divHeader  = document.createElement('div');
+        const divHeader = document.createElement('div');
         divHeader.classList.add('slider-arrow');
 
-        const h3  = document.createElement('h3');
+        const h3 = document.createElement('h3');
         h3.classList.add('slider-arrow__title', this.number + '__title');
         h3.textContent = this.name;
 
-        const linkAll= document.createElement('a');
+        const linkAll = document.createElement('a');
         linkAll.href = "all.html";
         linkAll.classList.add('slider-arrow__link', 'linkall-' + this.number);
         linkAll.textContent = `View all`;
@@ -180,7 +234,7 @@ class ArrowSlider {
         try {
             let data = await this.getData(this.name, this.url);
             let arrCard = [];
-            
+
             for (let i = 0; i < data.length; i++) {
                 const element = data[i];
                 arrCard[i] = new Card(element);
