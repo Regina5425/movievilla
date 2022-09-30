@@ -72,7 +72,7 @@ function checkTextInput(selector, inputName) {
 
     }
     else {
-        finalError += `Заполните поле ${inputName} <br>`;
+        finalError += `Fill the field ${inputName} <br>`;
     }
 }
 
