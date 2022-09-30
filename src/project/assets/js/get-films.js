@@ -1,6 +1,7 @@
 function getFilms() {
 	const slides = document.querySelectorAll('.main-slider__slide');
-	const API_KEY = 'k_d8sb2mok';
+	// const API_KEY = 'k_d8sb2mok';
+	const API_KEY = 'k_4wflfh9z';
 
 	async function getMovie(id, index, i) {
 		try {

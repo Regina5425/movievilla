@@ -233,20 +233,20 @@ class ArrowSlider {
     }
 }
 
-let slider1 = new ArrowSlider('Top 250 Movies', 'https://imdb-api.com/en/API/Top250Movies/k_o0135nnp', 'slider1');
+let slider1 = new ArrowSlider('Top 250 Movies', 'https://imdb-api.com/en/API/Top250Movies/k_4wflfh9z', 'slider1');
 slider1.render();
 slider1.renderCards();
 objCards.slider1 = 0;
 
-let slider2 = new ArrowSlider('Top250TVs', 'https://imdb-api.com/en/API/Top250TVs/k_o0135nnp', 'slider2');
+let slider2 = new ArrowSlider('Top 250TVs', 'https://imdb-api.com/en/API/Top250TVs/k_4wflfh9z', 'slider2');
 slider2.render();
 slider2.renderCards();
 objCards.slider2 = 0;
 
-// let slider3 = new ArrowSlider('ComingSoon', 'data2.json', 'slider3');
-// slider3.render();
-// slider3.renderCards();
-// objCards.slider3 = 0;
+let slider3 = new ArrowSlider('In Theatres', 'https://imdb-api.com/en/API/Top250TVs/k_4wflfh9z', 'slider3');
+slider3.render();
+slider3.renderCards();
+objCards.slider3 = 0;
 
 let buttonLeft = document.querySelector('.slider-arrow__left');
 let buttonRight = document.querySelector('.slider-arrow__right');
