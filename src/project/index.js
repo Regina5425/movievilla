@@ -81,6 +81,7 @@ function checkTextInput(selector, inputName) {
     if (input.value.length > 1) {
         let userPassword = document.querySelector('.password').value;
         let userName = document.querySelector('.username').value;
+        let userPassword = document.querySelector('.password').value;
 
         if (localStorage.getItem('name') == null) {
             localStorage.setItem('name', userName)
