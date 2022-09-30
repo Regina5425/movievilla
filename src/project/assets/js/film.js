@@ -19,7 +19,7 @@ class Film {
 
     async getInfoFromServer() {
         try {
-            let url = 'https://imdb-api.com/en/API/Title/k_o0135nnp/' + this.id + '/FullActor,FullCast,Posters,Images,Trailer,Ratings,Wikipedia,';
+            let url = 'https://imdb-api.com/en/API/Title/k_pg59pfpp/' + this.id + '/FullActor,FullCast,Posters,Images,Trailer,Ratings,Wikipedia,';
             let response = await fetch(url);
             let data = await response.json();
             console.log('я тут: ', data);
@@ -66,18 +66,23 @@ class Film {
 
             let genres = document.createElement('p');
             genres.textContent = film.genres;
+            genres.classList.add('color-text');
 
             let year = document.createElement('p');
             year.textContent = film.year;
+            year.classList.add('color-text');
 
             let companies = document.createElement('p');
             companies.textContent = film.companies;
+            companies.classList.add('color-text');
 
             let rating = document.createElement('p');
             rating.textContent = `IMDb: ${film.imDbRating}`;
+            rating.classList.add('color-text');
 
             let plot = document.createElement('p');
             plot.innerHTML = film.wikipedia.plotShort.html;
+            plot.classList.add('color-text');
 
             let divActorBlock = document.createElement('div');
             divActorBlock.classList.add('actors-block');
