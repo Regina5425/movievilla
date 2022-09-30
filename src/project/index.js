@@ -11,8 +11,6 @@ const reg = document.querySelector('.reg');
 let closeModal = document.querySelector('.close-modal');
 
 
-
-
 openModal.addEventListener('click', (e) => {
     e.preventDefault();
     modal.classList.add('active');
@@ -36,6 +34,13 @@ document.addEventListener('DOMContentLoaded', function (event) {
     let name = localStorage.getItem('name');
     if (name !== null) {
         document.querySelector('.username').value = name;
+    }
+})
+
+document.addEventListener('DOMContentLoaded', function (event) {
+    let password = localStorage.getItem('.password');
+    if (password !== null) {
+        document.querySelector('.password').value = password;
     }
 })
 
@@ -72,10 +77,15 @@ form.forEach((Submit) => {
 function checkTextInput(selector, inputName) {
     let input = document.querySelector(selector);
     if (input.value.length > 1) {
+        let userPassword = document.querySelector('.password').value;
         let userName = document.querySelector('.username').value;
 
         if (localStorage.getItem('name') == null) {
             localStorage.setItem('name', userName)
+        }
+
+        if (localStorage.getItem('password') == null) {
+            localStorage.setItem('password', userPassword)
         }
 
     }
