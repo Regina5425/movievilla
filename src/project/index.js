@@ -2,8 +2,8 @@
 
 const modal = document.querySelector('.modal');
 const modalForm = document.querySelector('.reg');
-const openModal = document.querySelectorAll('.open-modal');
-const Submit = document.querySelector('.form_btn');
+const openModal = document.querySelector('.open-modal');
+const Submit = document.querySelectorAll('.form_btn');
 const signInBtn = document.querySelector(".signin-btn");
 const signUpBtn = document.querySelector(".signup-btn");
 const formBox = document.querySelector(".form-box");
@@ -11,17 +11,25 @@ const reg = document.querySelector('.reg');
 let closeModal = document.querySelector('.close-modal');
 
 
-openModal.forEach((Submit) => {
-    Submit.addEventListener('click', (e) => {
-        e.preventDefault();
-        modal.classList.add('active');
-        modalForm.classList.add('active');
-    })
+
+
+openModal.addEventListener('click', (e) => {
+    e.preventDefault();
+    modal.classList.add('active');
+    modalForm.classList.add('active');
 });
 
 closeModal.addEventListener('click', () => {
     modal.classList.remove('active');
     modalForm.classList.remove('active');
+});
+
+Submit.forEach((Submit) => {
+    Submit.addEventListener('click', (e) => {
+        e.preventDefault();
+        modal.classList.remove('active');
+        modalForm.classList.remove('active');
+    })
 });
 
 document.addEventListener('DOMContentLoaded', function (event) {
@@ -55,7 +63,7 @@ let finalError = "";
 form.forEach((Submit) => {
     Submit.addEventListener('click', (e) => {
         e.preventDefault();
-        checkTextInput('input[name="user"]', 'Имя');
+        checkTextInput('input[name="user"]', 'Логин');
         checkTextInput('input[name="password"]', 'Пароль');
         error.innerHTML = finalError;
     });
