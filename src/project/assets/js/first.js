@@ -53,7 +53,7 @@ let finalError = "";
 form.forEach((Submit) => {
     Submit.addEventListener('click', (e) => {
         e.preventDefault();
-        checkTextInput('input[name="user"]', 'Имя');
+        checkTextInput('input[name="user"]', 'Логин');
         checkTextInput('input[name="password"]', 'Пароль');
         error.innerHTML = finalError;
     });
