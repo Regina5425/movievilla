@@ -58,7 +58,7 @@ function searchFilmsForm() {
 			createFilms(searchedFilmImg, searchedFilmId, searchedFilmTitle);
 		} catch (err) {
 			err.innerHTML = `
-			<div class="search-modal-film__error">Фильм не найден</div>
+			<div class="search-modal-film__error">Not found</div>
 		`;
 		} finally {
 			form.reset();
@@ -97,7 +97,7 @@ function searchFilmsForm() {
 			createFilms(filmGetImg, filmGetId, filmGetTitle);
 		} catch (err) {
 			err.innerHTML = `
-				<div class="search-modal-film__error">Не удалось загрузить фильмы</div>
+				<div class="search-modal-film__error">Failed to download movies</div>
 			`;
 		}
 	}
@@ -105,7 +105,7 @@ function searchFilmsForm() {
 	//создание заголовка популярных фильмов
 	const popularFilmsTitle = document.createElement('h2');
 	popularFilmsTitle.classList.add('search-modal__title');
-	popularFilmsTitle.textContent = 'Популярные фильмы';
+	popularFilmsTitle.textContent = 'Popular movies';
 	searchWrapper.prepend(popularFilmsTitle);
 
 	for (let i = 0; i < 5; i++) {

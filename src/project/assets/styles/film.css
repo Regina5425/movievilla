@@ -1,4 +1,6 @@
+@import "./style.css";
 @import "./favorite.css";
+@import "./first.css";
 @import "./slider2.css";
 
 * {
@@ -12,9 +14,10 @@ body {
     font-size: 18px;
 }
 
-p {
+.color-text {
     padding: 0.5%;
     color: #9CA3AF;
+    font-size: 16px;
 }
 
 .content {

@@ -1,3 +1,5 @@
+import imgError from "./assets/img/oops-err.png";
+
 /* first.js */
 
 const modal = document.querySelector('.modal');
@@ -90,7 +92,7 @@ function checkTextInput(selector, inputName) {
 
     }
     else {
-        finalError += `Заполните поле ${inputName} <br>`;
+        finalError += `Fill the field ${inputName} <br>`;
     }
 }
 
@@ -170,6 +172,11 @@ class ArrowSlider {
             return data.items;
         } catch (error) {
             console.log(error);
+
+            let errorMsg = document.createElement('p');
+            errorMsg.textContent = 'Sorry. API_KEY spoiled.';
+            errorMsg.classList.add('error');
+            main.append(errorMsg);
         }
     }
 
@@ -180,10 +187,14 @@ class ArrowSlider {
                 data = await this.getDataFromServer(name, url);
             }
 
-            // let data1 = JSON.parse(localStorage.getItem(name));
             return data;
         } catch (error) {
             console.log(error);
+
+            let errorMsg = document.createElement('p');
+            errorMsg.textContent = 'Sorry. API_KEY spoiled.';
+            errorMsg.classList.add('error');
+            main.append(errorMsg);
         }
     }
 
@@ -268,18 +279,22 @@ class ArrowSlider {
 
         } catch (error) {
             console.log(error);
+
+            // clearBlock(main);
+
+            // let errorImg = document.createElement('img');
+            // errorImg.classList.add('error');
+            // errorImg.alt = "error page";
+            // errorImg.src = imgError;
+            // main.append(errorImg);
+
+            // let errorMsg = document.createElement('p');
+            // errorMsg.textContent = 'Sorry. API_KEY spoiled.';
+            // errorMsg.classList.add('error');
+            // main.append(errorMsg);
         }
 
     }
-
-    // clickAll(e) {
-    //     let active = e.target;
-    //         console.log(active);
-
-    //         let number = active.className.match(/\d+/)[0];
-    //         let title = document.querySelector('.slider' + number + '__title').textContent;
-    //         localStorage.setItem("title", title);
-    // }
 
     clickArrow(e) {
         e.preventDefault();
@@ -327,7 +342,7 @@ class ArrowSlider {
                 }
                 let card = new Card(fakeCard);
                 card.render(document.querySelector('.slider' + numberSlider));
-                let newLink = document.querySelector('a[id="0"]');
+                let newLink = document.querySelector('a[data-id="0"]');
                 newLink.removeEventListener("click", clickFilm);
                 newLink.href = "all.html";
                 newLink.classList.add('linkall-' + numberSlider);
@@ -376,20 +391,20 @@ class ArrowSlider {
     }
 }
 
-let slider1 = new ArrowSlider('Top 250 Movies', 'https://imdb-api.com/en/API/Top250Movies/k_o0135nnp', 'slider1');
+let slider1 = new ArrowSlider('Top 250 Movies', 'https://imdb-api.com/en/API/Top250Movies/k_pg59pfpp', 'slider1');
 slider1.render();
 slider1.renderCards();
 objCards.slider1 = 0;
 
-let slider2 = new ArrowSlider('Top250TVs', 'https://imdb-api.com/en/API/Top250TVs/k_o0135nnp', 'slider2');
+let slider2 = new ArrowSlider('Top250TVs', 'https://imdb-api.com/en/API/Top250TVs/k_pg59pfpp', 'slider2');
 slider2.render();
 slider2.renderCards();
 objCards.slider2 = 0;
 
-// let slider3 = new ArrowSlider('ComingSoon', 'data2.json', 'slider3');
-// slider3.render();
-// slider3.renderCards();
-// objCards.slider3 = 0;
+let slider3 = new ArrowSlider('InTheaters', 'https://imdb-api.com/en/API/InTheaters/k_pg59pfpp', 'slider3');
+slider3.render();
+slider3.renderCards();
+objCards.slider3 = 0;
 
 let buttonLeft = document.querySelector('.slider-arrow__left');
 let buttonRight = document.querySelector('.slider-arrow__right');

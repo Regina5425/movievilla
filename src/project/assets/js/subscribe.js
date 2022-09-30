@@ -21,7 +21,7 @@ function subscribeForm() {
 	function createModalSubsError(input) {
 		const modalSubsErrParag = document.createElement('p');
 		modalSubsErrParag.classList.add('modal-subs__error');
-		modalSubsErrParag.textContent = '*Неверный формат заполнения';
+		modalSubsErrParag.textContent = '*Invalid filling format';
 		modalSubsForm.append(modalSubsErrParag);
 
 		input.addEventListener('input', () => {
@@ -31,8 +31,8 @@ function subscribeForm() {
 
 	//модалка об отправке формы подписки
 	const message = {
-		success: 'Спасибо за подписку!',
-		failure: 'Что-то пошло не так...'
+		success: 'Thank you for subscribing!',
+		failure: 'Something went wrong...'
 	};
 
 	function showSuccessModalSubs(message) {
@@ -88,7 +88,7 @@ function subscribeForm() {
 				showSuccessModalSubs(message.success);
 			} catch {
 				showSuccessModalSubs(message.failure);
-				throw new Error('Ошибка отправки формы подписки!');
+				throw new Error('Error sending the subscription form!');
 			} finally {
 				modalSubsForm.reset();
 			}
