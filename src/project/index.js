@@ -41,6 +41,13 @@ document.addEventListener('DOMContentLoaded', function (event) {
     }
 })
 
+document.addEventListener('DOMContentLoaded', function (event) {
+    let password = localStorage.getItem('.password');
+    if (password !== null) {
+        document.querySelector('.password').value = password;
+    }
+})
+
 document.addEventListener('click', (e) => {
     if (e.target === modal) {
         modal.classList.remove('active');
@@ -75,9 +82,14 @@ function checkTextInput(selector, inputName) {
     let input = document.querySelector(selector);
     if (input.value.length > 1) {
         let userName = document.querySelector('.username').value;
+        let userPassword = document.querySelector('.password').value;
 
         if (localStorage.getItem('name') == null) {
             localStorage.setItem('name', userName)
+        }
+
+        if (localStorage.getItem('password') == null) {
+            localStorage.setItem('password', userPassword)
         }
 
     }
