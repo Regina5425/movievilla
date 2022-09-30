@@ -1,7 +1,6 @@
 {
   "name": "movies",
   "version": "1.0.0",
-	"main": "index.js",
   "description": "test movies project",
   "author": "",
   "license": "ISC",
