@@ -18,7 +18,7 @@ class Film {
 
     async getInfoFromServer() {
         try {
-            let url = 'https://imdb-api.com/en/API/Title/k_pg59pfpp/' + this.id + '/FullActor,FullCast,Posters,Images,Trailer,Ratings,Wikipedia,';
+            let url = 'https://imdb-api.com/en/API/Title/k_4wflfh9z/' + this.id + '/FullActor,FullCast,Posters,Images,Trailer,Ratings,Wikipedia,';
             let response = await fetch(url);
             let data = await response.json();
             localStorage.setItem("film", JSON.stringify(data));

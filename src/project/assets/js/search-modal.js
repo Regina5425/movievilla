@@ -16,7 +16,8 @@ function searchFilmsForm() {
 	}
 
 	// const API_KEY_REGINA = 'k_d8sb2mok';
-	const API_KEY_REGINA_1 = 'k_my3q9ejq';
+	// const API_KEY_REGINA_1 = 'k_my3q9ejq';
+	const API_KEY_REGINA_1 = 'k_4wflfh9z';
 
 	function createFilms(img, id, title) {
 		const filmsContent = document.createElement('ul');
