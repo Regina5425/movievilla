@@ -8,7 +8,6 @@ import {setDataToLocal} from "./workwithdata";
 import Favorite from "./favorite";
 
 const id = localStorage.getItem("idFilm");
-console.log(id);
 const content = document.querySelector('.content');
 const COUNT_ACTORS = 5;
 
@@ -22,7 +21,6 @@ class Film {
             let url = 'https://imdb-api.com/en/API/Title/k_pg59pfpp/' + this.id + '/FullActor,FullCast,Posters,Images,Trailer,Ratings,Wikipedia,';
             let response = await fetch(url);
             let data = await response.json();
-            console.log('я тут: ', data);
             localStorage.setItem("film", JSON.stringify(data));
             return data;
         } catch (error) {
