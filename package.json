@@ -2,8 +2,9 @@
   "name": "movies",
   "version": "1.0.0",
   "description": "test movies project",
+	"source": "src/index.html",
   "scripts": {
-    "start": "parcel ./src/project/index.html"
+    "start": "parcel src/project/index.html"
   },
   "author": "",
   "license": "ISC",
