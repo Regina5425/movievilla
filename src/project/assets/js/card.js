@@ -17,7 +17,7 @@ class Card {
         const fragment = new DocumentFragment();
 
         const link = document.createElement('a');
-        link.href = "film.html";
+        link.href = "./film.html";
         link.classList.add('slider-arrow__card-link');
         link.dataset.id = this.id;
         // link.id = this.id;
