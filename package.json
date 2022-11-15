@@ -2,13 +2,19 @@
   "name": "movies",
   "version": "1.0.0",
   "description": "test movies project",
-	"source": "src/index.html",
+  "source": "src/index.html",
   "scripts": {
-    "start": "parcel src/project/index.html"
+    "start": "parcel ./src/project/index.html",
+    "prebuild-dev": "shx rm -rf dist/*",
+    "build-dev": "parcel build ./src/project/index.html --no-optimize --public-url ./",
+    "prebuild": "shx rm -rf dist/*",
+    "build": "parcel build ./src/project/index.html --public-url ./",
+    "push-gh-pages": "push-dir --dir=dist --branch=gh-pages --cleanup --verbose"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "parcel": "^2.7.0"
+    "parcel": "^2.7.0",
+    "shx": "^0.3.4"
   }
 }
