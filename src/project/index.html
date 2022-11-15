@@ -12,7 +12,9 @@
 
 <body>
     <header class="header">
-        <img src="./assets/img/Logo.png" alt="Логотип" class="header__img">
+        <a href="index.html">
+					<img src="./assets/img/Logo.png" alt="Логотип" class="header__img">
+				</a>
         <nav class="header__nav">
             <ul class="nav">
                 <li class="nav__item">
@@ -25,16 +27,16 @@
                     </form>
                 </li>
                 <li class="nav__item nav__item_active">
-                    <a href="#" class="nav__item_link">Movies</a>
+                    <a href="#" class="nav__item--link">Movies</a>
                 </li>
                 <li class="nav__item">
-                    <a href="#" class="nav__item_link">Genres</a>
+                    <a href="#" class="nav__item--link">Genres</a>
                 </li>
                 <li class="nav__item">
-                    <a href="lk.html" class="nav__item_link">Favorites</a>
+                    <a href="lk.html" class="nav__item--link">Favorites</a>
                 </li>
                 <li class="nav__item">
-                    <a href="#" class="nav__item_link link-subscribe" data-modal="subscription">Subscribe</a>
+                    <a href="#" class="nav__item--link link-subscribe" data-modal="subscription">Subscribe</a>
                     <div class="modal-subs modal-subs__hide">
                         <div class="modal-subs-wrapper">
                             <div class="modal-subs-content">
@@ -49,17 +51,18 @@
                     </div>
                 </li>
                 <li class="nav__item">
-                    <a href="#" class="nav__item_link open-modal" data-modal="enter">LOG IN</a>
+                    <a href="#" class="nav__item--link open-modal" data-modal="enter">LOG IN</a>
                 </li>
             </ul>
         </nav>
         <div class="modal">
-            <svg class="close-modal" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                <path fill="#2982ff"
-                    d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z" />
-            </svg>
+            
             <div class="reg">
                 <article class="container">
+									<svg class="close-modal" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+										<path fill="#fff"
+												d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z" />
+								</svg>
                     <div class="block">
                         <section class="block_item block-item">
                             <h2 class="block-item_title">Log In</h2>
