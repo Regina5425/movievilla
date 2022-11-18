@@ -33,7 +33,7 @@
     align-items: center;
 }
 
-.nav__item_link {
+.nav__item--link {
     position: relative;
     padding-right: 50px;
     top: 35%;
@@ -46,7 +46,7 @@
     transition: 0.5s;
 }
 
-.nav__item_active {
+.nav__item--active {
     border-top: black solid 1px;
     border-bottom: black solid 1px;
 }
@@ -188,7 +188,7 @@ a {
     align-items: center;
 }
 
-.block_item {
+.block-item {
     width: 50%;
 }
 
@@ -196,14 +196,14 @@ a {
     text-align: center;
 }
 
-.block-item_title {
+.block-item--title {
     font-size: 1.2rem;
     font-weight: 500;
     color: #fff;
     margin-bottom: 10px;
 }
 
-.block-item_btn {
+.block-item--btn {
     border: none;
     cursor: pointer;
     padding: 10px 20px;
@@ -239,39 +239,39 @@ a {
     transition: 0.5s;
 }
 
-.form_signin {
+.form--signing{
     left: 0;
     transition-delay: 0.25s;
 }
 
-.form_signup {
+.form--signup {
     left: 100%;
     transition-delay: 0s;
 }
 
-.form-box.active .form_signin {
+.form-box.active .form--signing {
     left: -100%;
     transition-delay: 0s;
 }
 
-.form-box.active .form_signup {
+.form-box.active .form--signup {
     left: 0;
     transition-delay: 0.25s;
 }
 
-.form_title {
+.form--title {
     font-size: 1.5rem;
     font-weight: 500;
     color: #333;
 }
 
-.form_input {
+.form-input {
     width: 70%;
     padding: 10px;
     border: solid 1px #333;
 }
 
-.form_btn {
+.form-btn {
     border: none;
     cursor: pointer;
     font-size: 1.5rem;
@@ -280,7 +280,7 @@ a {
     padding: 10px 50px;
 }
 
-.form_forgot {
+.form-forgot {
     color: rgb(39, 43, 73);
     text-decoration: none;
 }

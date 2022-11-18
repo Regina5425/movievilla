@@ -1,21 +1,21 @@
 .heart-circle {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: #696969;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    right: 20px;
-    top: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #696969;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 20px;
+  top: 20px;
 }
 
 .heart-circle:hover {
-    cursor: pointer;
-    background-color: none;
+  cursor: pointer;
+  background-color: none;
 }
 
 .heart {
-    width: 70%;
+  width: 70%;
 }

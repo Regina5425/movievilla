@@ -1,5 +1,4 @@
 function searchFilmsForm() {
-	//все найденные элементы заменить на классы в форме поиска главной страницы
 	const form = document.querySelector('.search-form'),
 		searchInput = document.querySelector('.search__input'),
 		searchModal = document.querySelector('.search-modal'),
@@ -46,7 +45,6 @@ function searchFilmsForm() {
 	async function searchFilm(index) {
 		try {
 			const userSearch = searchInput.value.trim();
-			console.log(userSearch);
 			const response = await fetch(`https://imdb-api.com/en/API/SearchMovie/${API_KEY_REGINA_1}/${userSearch}`);
 			const searched = await response.json();
 
@@ -67,20 +65,18 @@ function searchFilmsForm() {
 
 	function clearResult() {
 		const filmContent = document.querySelectorAll('.search-modal__content');
-		filmContent.forEach(film => { //! исправления
+		filmContent.forEach(film => {
 			if (film) {
 				film.remove();
 			}
 		});
 	}
 
-	//!сохраняем поп фильмы в localStorage
 	function saveFilms(popular) {
 		const popFilms = JSON.stringify(popular);
 		localStorage.setItem('popular', popFilms);
 	}
 
-	//!функция показывает популярные фильмы
 	async function showPopularFilms(index) {
 		try {
 			const response = await fetch(`https://imdb-api.com/en/API/MostPopularMovies/${API_KEY_REGINA_1}`);
@@ -102,24 +98,23 @@ function searchFilmsForm() {
 		}
 	}
 
-	//!создание заголовка популярных фильмов
 	const popularFilmsTitle = document.createElement('h2');
 	popularFilmsTitle.classList.add('search-modal__title');
 	popularFilmsTitle.textContent = 'Популярные фильмы';
 	searchWrapper.prepend(popularFilmsTitle);
-	//!вызов функции
+
 	for (let i = 0; i < 5; i++) {
 		showPopularFilms(i);
 	}
 
 	form.addEventListener('submit', (e) => {
 		e.preventDefault();
-		popularFilmsTitle.remove(); //!исправления
+		popularFilmsTitle.remove();
 		clearResult();
 		searchFilm(0);
 	});
 
-	searchInput.addEventListener('focus', openSearchModal); //!исправления
+	searchInput.addEventListener('focus', openSearchModal);
 	searchModal.addEventListener('click', closeSearchModal);
 }
 

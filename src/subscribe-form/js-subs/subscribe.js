@@ -29,7 +29,6 @@ function subscribeForm() {
 		});
 	}
 
-	//модалка об отправке формы подписки
 	const message = {
 		success: 'Спасибо за подписку!',
 		failure: 'Что-то пошло не так...'
@@ -62,7 +61,6 @@ function subscribeForm() {
 		}
 	});
 
-	//fetch
 	const url = 'https://jsonplaceholder.typicode.com/posts';
 
 	modalSubsForm.addEventListener('submit', (event) => {
@@ -84,7 +82,6 @@ function subscribeForm() {
 					body: JSON.stringify(userEmail)
 				});
 				const userData = await response.json();
-				console.log(userData);
 				showSuccessModalSubs(message.success);
 			} catch {
 				showSuccessModalSubs(message.failure);

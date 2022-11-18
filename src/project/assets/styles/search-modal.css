@@ -1,9 +1,7 @@
-/* модалка абсолютна относительно формы поиска */
 .search-form {
 	position: relative;
 }
 
-/* ======================== */
 .search-modal__hide {
 	display: none;
 }

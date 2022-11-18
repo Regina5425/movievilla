@@ -1,128 +1,121 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    background-color: #0C111B;
+  background-color: #0c111b;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .section__slider {
-    padding-top: 3%;
-    padding-bottom: 3%;
+  padding-top: 3%;
+  padding-bottom: 3%;
 }
 
 .slider-arrow {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .slider-arrow__card-link {
-    padding-top: 5%;
+  padding-top: 5%;
 }
 
 .invisible {
-    opacity: 0;
-    cursor: inherit;
+  opacity: 0;
+  cursor: inherit;
 }
 
 .slider-arrow__title {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 48px;
-    line-height: 56px;
-
-    color: #FFFFFF;
-
-    padding-left: 5%;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 56px;
+  color: #ffffff;
+  padding-left: 5%;
 }
 
 .slider-arrow__link {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 28px;
-
-    color: #FFFFFF;
-
-    padding-right: 5%;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  color: #ffffff;
+  padding-right: 5%;
 }
 
 .slider-arrow__block {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
 }
 
 .slider-arrow__card-img {
-    width: 100%;
-    height: 300px;
-    border-radius: 15px;
+  width: 100%;
+  height: 300px;
+  border-radius: 15px;
 }
 
 .slider-arrow__card {
-    width: 225px;
-    height: 400px;
-    position: relative;
+  width: 225px;
+  height: 400px;
+  position: relative;
 }
 
 .slider-arrow__films {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 90%;
 }
 
 .slider-arrow__card-text {
-    padding-left: 15%;
-    padding-top: 10%;
-
+  padding-left: 15%;
+  padding-top: 10%;
 }
 
 .slider-arrow__card-text__p {
-    font-family: 'DM Sans';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 16px;
-
-    color: #9CA3AF;
-
-    padding-top: 3%;
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+  color: #9ca3af;
+  padding-top: 3%;
 }
 
 .slider-arrow__card-text__title {
-    font-family: 'DM Sans';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 23px;
-
-    color: #FFFFFF;
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 23px;
+  color: #ffffff;
 }
 
-.slider-arrow__left, .slider-arrow__right {
-    display: flex;
+.slider-arrow__left,
+.slider-arrow__right {
+  display: flex;
 }
 
 .slider-arrow__img {
-    width: 25px;
+  width: 25px;
 }
 
 .error {
-    color: red;
-    font-size: 18px;
-    font-family: 'DM Sans';
+  color: red;
+  font-size: 18px;
+  font-family: "DM Sans";
 }
 
-@media (min-width:320px) and (max-width:767px) {
-    .section__slider {
-        width: 100vw;
-    }
+@media (min-width: 320px) and (max-width: 767px) {
+  .section__slider {
+    width: 100vw;
+  }
 }
