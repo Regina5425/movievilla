@@ -1,6 +1,10 @@
 @import "./style.css";
 @import "./favorite.css";
 
+
+.content-lk {
+	padding: 0 30px;
+}
 .favorites-block {
   display: flex;
   flex-wrap: wrap;
