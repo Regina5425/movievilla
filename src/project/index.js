@@ -1,7 +1,7 @@
 import subscribeForm from "./assets/js/subscribe";
 import getFilms from "./assets/js/get-films";
 import slider from "./assets/js/main-slider";
-import searchFilmsForm from "./assets/js/search-modal";
+// import searchFilmsForm from "./assets/js/search-modal";
 import imgArrowLeft from "./assets/img/arrow_left.svg";
 import imgArrowRight from "./assets/img/arrow_right.svg";
 import imgFake from "./assets/img/fakeCard.png";

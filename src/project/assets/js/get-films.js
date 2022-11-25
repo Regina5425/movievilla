@@ -1,7 +1,9 @@
 function getFilms() {
   const slides = document.querySelectorAll(".main-slider__slide");
   // const API_KEY = 'k_d8sb2mok';
-  const API_KEY = "k_4wflfh9z";
+	// const API_KEY = 'k_my3q9ejq';
+  // const API_KEY = "k_4wflfh9z";
+	const API_KEY = 'k_9lry5v7x';
 
   async function getMovie(id, index, i) {
     try {
@@ -9,9 +11,12 @@ function getFilms() {
         `https://imdb-api.com/en/API/Images/${API_KEY}/${id}/Short`
       );
       const searched = await response.json();
+			const searchedItems = localStorage('searchedItems', JSON.stringify(searched));
+			console.log(searchedItems);
 
       const movieImg = searched.items[index].image;
       const movieTitle = searched.items[index].title;
+
 
       const sliderImg = document.createElement("img");
       sliderImg.src = movieImg;

@@ -48,6 +48,11 @@ a {
   line-height: 28px;
   color: #ffffff;
   padding-right: 5%;
+	transition: all 0.3s ease-in-out;
+}
+
+.slider-arrow__link:hover {
+	color: #f34e21;
 }
 
 .slider-arrow__block {
