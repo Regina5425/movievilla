@@ -3,7 +3,9 @@ function getFilms() {
   // const API_KEY = 'k_d8sb2mok';
   // const API_KEY = 'k_my3q9ejq';
   // const API_KEY = "k_4wflfh9z";
-  const API_KEY = "k_9lry5v7x";
+  // const API_KEY = "k_9lry5v7x";
+  const API_KEY = "k_j5w0ayif";
+
 
   async function getMovie(id, index, i) {
     try {
